@@ -1,4 +1,4 @@
-  --- ATUALIZA��O DO REAL 
+  --- ATUALIZAÇÃO DO REAL 
 	DECLARE @ANO_MES INT = CASE WHEN MONTH(GETDATE()) = 1 THEN CONCAT (YEAR(GETDATE())-1,12)
 	                                                      ELSE CONCAT (YEAR(GETDATE()),'0',MONTH(GETDATE()) ) - 1 END
 	DECLARE @COUNT_VERSAO INT 
@@ -32,7 +32,7 @@
 												   ELSE  CONCAT ('V',CAST ((@COUNT_VERSAO-1) AS CHAR(1))) END
 	WHERE (@ID_MAX_VERSAO_REAL-1) = ID AND ANO_MES = @ANO_MES AND ORCADO_REAL = 'REAL'
 
-	 --- ATUALIZA��O DO OR�ADO
+	 --- ATUALIZAÇÃO DO ORÇADO
 	 UPDATE TBL_DIM_COMPETENCIA
 	 SET CD_VERSAO = A.CD_VERSAO, 
 	     SIMULADO_OFICIAL = A.SIMULADO_OFICIAL,
@@ -41,3 +41,143 @@
 	ON  A.ANO_MES = B.ANO_MES AND A.ORCADO_REAL = B.ORCADO_REAL
 	WHERE A.CD_VERSAO <> B.CD_VERSAO  AND A.SIMULADO_OFICIAL = 'O' AND A.ORCADO_REAL = 'ORCADO' AND 
 	A.ANO_MES > CAST (CONCAT(CAST (YEAR(GETDATE()) AS CHAR(4)),'00') AS INT)
+
+
+
+
+
+
+
+1ª apresentado o que vai ser desenvolvido
+
+é definido as demandas (Time e PO)
+descrever um conjunto de estórias desejadas do produto e prioridade entre elas para a equipe. O objetivo é fornecer as informações suficientes para o time traçar as tarefas necessárias para a criação da funcionalidade desejada.
+só equipe é capaz de definir o que ela é capaz de realizar no próximo Sprint
+ é função do Scrum Master, o mentor e facilitador do time, zelar para que a equipe compreenda o que deve ser fazer e que somente aceite tarefas e prazos que consiga cumprir.
+
+Dono do Produto (PO) estabelece as prioridades. 
+
+Durante o Sprint Planning, o Product Owner descreve as funcionalidades de maior prioridade para a equipe. A equipe faz perguntas durante a reunião de modo que seja capaz de quebrar as funcionalidades em tarefas técnicas, após a reunião. Essas tarefas irão dar origem ao Sprint Backlog.
+
+2ª como vai ser feito.
+ parte da reunião, o foco é como a equipe irá realizar as funcionalidades desejadas, como as tarefas serão executadas, 
+
+
+• A meta do sprint.
+• Data e local definidos para a reunião diária.
+• A relação dos membros do time envolvidos e seu nível de comprometimento.
+• O sprint backlog (lista de estórias que serão trabalhadas neste determinado sprint).
+• Data de apresentação do sprint.
+
+todos os desenvolvedores sejam capazes de dizer o quanto estarão disponíveis para a próxima sprint.
+assumir uma capacidade de produção de 80% do total de horas trabalhadas é uma prática aceitávelpara cobrir possíveis ausências não previstas (doença, atrasos diversos, detalhes não previstos, bugs urgentes etc).
+
+desenvolvedores jamais devem superestimar sua capacidade de produzir.
+
+
+Falhas comuns
+
+Uma falha comum na definição do escopo e comprometimento com tarefas é ignorar o débito técnico. O time de desenvolvimento tem de estar ciente de que em torno de 25% do seu tempo estará fazendo correções e ajustes.
+
+Se o time ignorar o débito técnico, seja não deixando esta margem ou qualquer outra, mais cedo ou mais tarde terá problemas técnicos e sua produção cairá em sprints futuras.
+
+- Não detalhar a parte técnica na reunião 
+Nada impede, no entanto, que os desenvolvedores se reúnam após a Planning para uma reunião técnica de detalhamento. Planejar demais com antecedência gera desperdício.
+
+subestimar a importância desse planejamento colaborativo e democrático. Alguns times nomeiam um líder para tomar as decisões por todos, desconsiderando a importância de suas opiniões individuais no processo de planejamento.
+
+
+Projeto ágil
+que estamos construindo?
+  Qual o problema que o seu produto precisa resolver?
+  Canvas (onde o time está indo e o que deverão encontrar no final do caminho.)
+
+Visao: construir o alinhamento em toda a equipe sobre qual deve ser o resultado final após a construção do produto ( Embora seja muito improvável que a Visão de produto sofra muitas mudanças, você deve esperar que haja alguma evolução, conforme você aprenda mais sobre seu público-alvo, potenciais concorrentes e onde o produto pode se encaixar no mercado de modo mais eficaz)
+
+(Revistar o canecas a cada 4 semanas e avaliar eventuais oportunidades de mercado.)
+    Defina com clareza, a necessidade do usuário ou a oportunidade de mercado que o seu produto visa resolver
+
+    Identifique o perfil médio do usuário do seu produto
+
+    Identifique potenciais concorrentes que eventualmente possam estar no mercado
+
+     Discutam como o produto pode gerar receitas
+
+
+-> Quando é que vamos precisar do produto concluído?
+ao invés de esperar até que todo o projeto está completo, você vai querer entregar em pequenos incrementos para obter o máximo de retorno possível ao longo do caminho
+Roadmaps de produtos são os planos de alto nível que mostram a evolução pretendida do seu produto ao longo dos próximos Releases ou Lançamentos
+
+A ideia principal é ter uma visão clara do planejamento dos releases e quando eles devem estar concluídos
+
+-> Como é que vamos chegar ?
+como a equipe vai atuar no próximo Release.
+
+Os Canvas ajudarão a ter uma visão estratégica do projeto, enquanto este Release Plan vai apoiar de modo muito prático na execução dos próximos Releases.
+
+
+A chave é lembrar que as respostas a estas perguntas provavelmente irão mudar à medida que a sua equipe progride através do desenvolvimento de seu produto em cada Sprint.
+
+
+--------------------
+Atividades básicas, conhecidas como cerimônias no Scrum:
+
+Planejamento do Sprint;
+
+Execução do Sprint;
+Reunião diária: acompanhamento de 15 minutos para deixar claro o que cada um está fazendo;
+
+Revisão do Sprint: no final das duas semanas ocorre uma entrega, que é revisada pelo product owner junto com o time de desenvolvimento;
+
+Retrospectiva do Sprint: o Scrum Master junto com a equipe revisa aquilo que pode melhorar no Sprint em termos de processo, de comunicação, do que funcionou ou não. O legal do Scrum é que você está sempre melhorando.
+
+Grove man: pegar o backlog e quebrar em tarefas menores, reavaliar.
+
+Não são feitas mudanças que possam por em perigo o objetivo da sprint;
+
+As metas de qualidade não diminuem;
+
+O escopo pode ser clarificado e renegociado entre o Product Owner e a equipe.
+
+
+
+Daily
+que fez ontem, que vai fazer hoje, tem algum impedimento
+
+É importante pela capacidade de tangibilizar o trabalho, porque hoje em dia o trabalho se mostra cada vez menos tangível ou seja,  é difícil saber o que está acontecendo. 
+
+
+Revisão da sprint (2h sprint de 2 semanas)
+
+Ao final da sprint uma reunião de revisão é então realizada. O intuito é que o time SCRUM e as partes interessadas conversem sobre o que foi feito durante a sprint. A equipe de desenvolvimento apresenta as estórias que foram implementadas ao Product Owner que, por sua vez, analisa a resolução de cada uma e decide se a mesma está “Pronta” ou não. Caso alguma estória seja reprovada, a mesma é reinserida no Product Backlog ficando disponível para uma próxima sprint. A reunião de revisão da sprint é informal, e não se caracteriza como uma reunião de status, a apresentação do incremento destina-se a motivar, obter comentários e promover a colaboração.
+
+
+Podem participar da reunião o time SCRUM e Stakeholders convidados pelo Product Owner;
+
+O Product Owner esclarece quais itens do Product Backlog foram “Prontos” e quais não foram “Prontos”;
+
+O time de desenvolvimento discute o que foi feito durante a sprint, quais problemas ocorreram e como foram resolvidos;
+
+O time de desenvolvimento demonstra o trabalho que está “Pronto” e responde as questões sobre o incremento;
+
+O Product Owner discute as estórias atuais do Product Backlog, projetando as prováveis datas de conclusão, baseando-se no progresso até a data atual;
+
+O grupo todo colabora sobre o que fazer a seguir, e assim a reunião de revisão da sprint fornece valiosas entradas para a reunião de planejamento da próxima sprint;
+
+Análise de como o mercado ou o uso potencial do produto pode ter mudado, e o que é mais importante a se fazer no futuro;
+
+Análise da linha do tempo, orçamento, potenciais capacidades, e mercado para a próxima versão esperada do produto.
+
+
+Retrospectiva da sprint (1h30 sprint de 2 semanas)
+
+A retrospectiva da sprint ocorre após a revisão da sprint e antes da reunião de planejamento da próxima sprint. Nesta reunião a equipe reflete sobre o que ocorreu bem ou não na sprint, discutindo um plano de melhorias para serem aplicadas na próxima. Dessa forma a cada nova sprint a equipe vai aprendendo e melhorando o seu processo de desenvolvimento.
+
+O propósito da retrospectiva da sprint é:
+
+Inspecionar como a última sprint foi em relação às pessoas, aos relacionamentos, aos processos e às ferramentas;
+
+Identificar e ordenar os principais itens que foram bem e as potenciais melhorias;
+
+Criar um plano para implementar melhorias no modo que o time SCRUM faz seu trabalho.
+

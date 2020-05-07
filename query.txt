@@ -1,4 +1,7 @@
-  --- ATUALIZAÇÃO DO REAL 
+ https://pt.surveymonkey.com/r/LZ3DZDC
+ 
+ 
+ --- ATUALIZAÇÃO DO REAL 
 	DECLARE @ANO_MES INT = CASE WHEN MONTH(GETDATE()) = 1 THEN CONCAT (YEAR(GETDATE())-1,12)
 	                                                      ELSE CONCAT (YEAR(GETDATE()),'0',MONTH(GETDATE()) ) - 1 END
 	DECLARE @COUNT_VERSAO INT 
